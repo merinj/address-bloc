@@ -15,6 +15,7 @@
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - Exit"
+     puts "6 - View entry number n"
      print "Enter your selection: "
  
      
@@ -42,6 +43,10 @@
          puts "Good-bye!"
          # #8
          exit(0)
+       when 6
+         system "clear"
+         view_specific_entry
+          main_menu
        # #9
        else
          system "clear"
@@ -49,7 +54,16 @@
          main_menu
      end
    end
- 
+   
+   def view_specific_entry
+    puts "Please enter entry number"
+    n = gets.chomp.to_i 
+    if n > @address_book.entries.length
+      puts "Select a value within total entries"
+    else  
+    puts @address_book.entries[n]
+    end   
+   end  
    # #10
    def view_all_entries
     address_book.entries.each do |entry|

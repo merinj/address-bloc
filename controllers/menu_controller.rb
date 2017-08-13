@@ -14,7 +14,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Detonate(Delete all entries)"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      
@@ -39,6 +40,10 @@
          read_csv
          main_menu
        when 5
+         system "clear"
+         detonate
+         main_menu
+       when 6
          puts "Good-bye!"
          # #8
          exit(0)
@@ -62,6 +67,11 @@
      system "clear"
      puts "End of entries"
    end
+
+   def detonate
+    @address_book.detonate
+    puts "All entries are deleted"
+   end 
  
    def create_entry
      system "clear"

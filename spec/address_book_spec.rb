@@ -42,6 +42,15 @@ RSpec.describe AddressBook do
       end
     end
 
+    describe "#detonate" do
+      it "deletes all entries from the address book" do
+        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+        book.add_entry("Bill", "555-555-4854", "bill@blocmail.com")
+        book.detonate
+        expect(book.entries.size).to eq(0)
+      end  
+    end
+        
     describe "#import_from_csv" do
         it "imports the correct number of entries" do
     
